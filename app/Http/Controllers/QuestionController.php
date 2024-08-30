@@ -49,7 +49,7 @@ class QuestionController extends Controller
             'title' => $request->title,
             'content' => $request->content,
             'rubric_id' => $request->rubric_id,
-            //'user_id' => Auth::id(), // Utilisation d'Auth::id() pour obtenir l'utilisateur connecté
+            'user_id' => Auth::id(), // Utilisation d'Auth::id() pour obtenir l'utilisateur connecté
         ]);
 
         return redirect()->route('questions.index')->with('success', 'Question ajoutée avec succès.');

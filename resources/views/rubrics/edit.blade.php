@@ -1,18 +1,23 @@
+<!-- resources/views/rubrics/edit.blade.php -->
+
 @extends('layouts.app')
 
-@section('content')
-    <div class="container mx-auto p-4">
-        <h1 class="text-2xl font-bold mb-4">Éditer la Rubrique</h1>
+@section('title', 'Modifier Rubrique')
 
-        <form action="{{ route('rubrics.update', $rubric->id) }}" method="POST">
+@section('content')
+    <div class="container mt-5">
+        <h1 class="mb-4">Modifier Rubrique</h1>
+
+        <form action="{{ route('rubrics.update', $rubric) }}" method="POST">
             @csrf
             @method('PUT')
-            <div class="mb-4">
-                <label for="name" class="block text-sm font-medium text-gray-700">Nom de la Rubrique</label>
-                <input type="text" id="name" name="name" class="mt-1 block w-full" value="{{ $rubric->name }}" required>
+            
+            <div class="form-group">
+                <label for="name">Nom de la Rubrique</label>
+                <input type="text" id="name" name="name" class="form-control" value="{{ $rubric->name }}" required>
             </div>
-
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Mettre à jour</button>
+            <br>
+            <button type="submit" class="btn btn-primary">Sauvegarder</button>
         </form>
     </div>
 @endsection
